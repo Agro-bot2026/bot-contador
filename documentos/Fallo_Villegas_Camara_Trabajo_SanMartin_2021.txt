@@ -1,0 +1,129 @@
+FALLO JUDICIAL - CÁMARA DEL TRABAJO, DE PAZ Y TRIBUTARIA
+SEGUNDA - 3RA CIRC. PODER JUDICIAL MENDOZA
+
+Foja: 192
+CUIJ: 13-05109119-6((033002-14649))
+VILLEGAS, GABRIEL C/ REAL, NILDA SOLEDAD ISABEL Y OTS. S/ Acumulación objetiva de acciones
+
+Ciudad: General San Martín, Provincia de Mendoza
+Fecha: 12 de marzo de 2021
+Juez: DR. OSCAR ALBERTO CORRADINI
+Sala Unipersonal Número Dos
+
+================================================================================
+HECHOS
+================================================================================
+
+El Sr. GABRIEL VILLEGAS demanda a las Sras. NILDA SOLEDAD ISABEL REAL, ALDANA JULIETA OYARZÁBAL Y JESICA SOLEDAD OYARZÁBAL, solicitando se las condene a pagar la suma de $96.305,93 o lo que en más o en menos resulte de la prueba.
+
+- Fecha de ingreso: 27 de septiembre del año 2000
+- Modalidad: contratista de viñas y frutales
+- Superficie: 13 hectáreas (9 ha. uva criolla grande y 4 ha. moscatel)
+- Porcentaje en la producción: 18%
+- Empleador original: MARIO OYARZABAL (fallecido aprox. 5 años después)
+- Empleador sucesor: ALBERTO DIMAS OYARZABAL (también fallecido)
+- Empleadoras finales: sucesores de Alberto Dimas Oyarzabal
+
+El actor obtuvo jubilación ordinaria en 2012 y continuó trabajando sin notificar a las empleadoras.
+El despido sin causa se produjo el 18/3/2013.
+
+================================================================================
+PUNTOS JURÍDICOS CLAVE RESUELTOS
+================================================================================
+
+1. SUPERFICIE TRABAJADA:
+   - El contrato original era de 13 ha.
+   - Los recibos de haberes con la sucesión mostraban 12,2 ha.
+   - El RENSPA certificó 12,2 ha. efectivamente cultivadas.
+   - RESOLUCIÓN: Se tomaron 12,2 ha. como superficie real trabajada.
+   - LECCIÓN: La superficie real prevalece sobre la del contrato si los recibos 
+     y certificaciones oficiales muestran otra cosa durante largo tiempo.
+
+2. JUBILACIÓN Y ANTIGÜEDAD:
+   - El trabajador jubilado que continúa trabajando para el mismo empleador 
+     genera un nuevo contrato desde la fecha de la jubilación.
+   - Solo se computa como antigüedad el tiempo POSTERIOR a la jubilación.
+   - Fundamento: Art. 253 LCT (aplicado analógicamente) y Plenario "Couto de Capa" CNAT 5/6/2009.
+   - RESOLUCIÓN: Antigüedad computada desde 25/10/2012 (fecha en que el actor 
+     comunicó su jubilación) hasta 18/3/2013 = 4 meses y 21 días.
+
+3. INDEMNIZACIÓN POR ANTIGÜEDAD:
+   - Aplicable: Art. 12 inc. 5 apartado a) Ley 23.154
+   - Cálculo: 20% del total devengado en el último período agrícola, por cada año de servicio.
+   - Como no completó un año, se aplicó el Art. 12 inc. 5 b): 
+     dividir por 10 meses y multiplicar por los meses trabajados.
+   - MONTO OTORGADO: $872,06
+
+4. ART. 2 LEY 25.323 (incremento indemnizatorio):
+   - RECHAZADO: Esta norma no es aplicable al Estatuto del Contratista de Viñas 
+     y Frutales porque refiere a los arts. 232, 233 y 245 LCT que no rigen en 
+     el estatuto especial.
+
+5. DIFERENCIAS SALARIALES:
+   - RECHAZADAS: Porque la superficie real acreditada era de 12,2 ha., 
+     no 13 ha. como reclamaba el actor.
+
+================================================================================
+LEYES APLICADAS EN EL FALLO
+================================================================================
+
+- Ley 20.589 (Estatuto del Contratista de Viñas y Frutales)
+- Ley 23.154 (modifica y restituye la Ley 20.589)
+- Ley 26.727 (Régimen de Trabajo Agrario)
+- Art. 252 y 253 LCT (jubilación y reingreso)
+- Art. 18 LCT (cómputo de antigüedad)
+- Art. 34 Ley 24.241 (reingreso de jubilados)
+- Ley 25.323 (incremento indemnizatorio - NO aplicable al estatuto)
+
+================================================================================
+INTERESES APLICADOS
+================================================================================
+
+- Hasta 30/10/2017: Tasa activa promedio BNA (Plenario "Aguirre" SCJ Mendoza)
+- 31/10/2017 al 01/01/2018: Tasa "Libre Destino" 36 meses BNA (Plenario "Citibank")
+- Desde 02/01/2018: Tasa UVA publicada por BCRA (Ley 9.041)
+
+================================================================================
+RESOLUCIÓN FINAL
+================================================================================
+
+1. HACER LUGAR parcialmente a la demanda.
+2. Condenar solidariamente a las demandadas a pagar al actor:
+   INDEMNIZACIÓN POR ANTIGÜEDAD: $872,06 + intereses legales.
+3. RECHAZAR: diferencias salariales y art. 2 ley 25.323.
+4. COSTAS: a cargo de las demandadas en lo que prospera y del actor en lo rechazado.
+
+================================================================================
+DOCTRINA JURISPRUDENCIAL CITADA
+================================================================================
+
+- Plenario "Couto de Capa" CNAT 5/6/2009: aplicación art. 253 LCT al trabajador 
+  jubilado que sigue trabajando sin interrupción para el mismo empleador.
+- Plenario "Aguirre" SCJ Mendoza 25/05/2009: tasa activa para intereses moratorios.
+- Plenario "Citibank" SCJ Mendoza: tasa "Libre Destino" 36 meses BNA.
+- Livellara, Carlos A.: "El estatuto del contratista de viñas y frutales: 
+  regulación autónoma y autosuficiente" T y SS 1988-357/362.
+- SCBA 4-6-2003 "Frigerio c. Caja de Previsión": doble capitalización de antigüedad.
+
+================================================================================
+NOTAS PARA EL BOT - PUNTOS CLAVE A RECORDAR
+================================================================================
+
+1. El Estatuto del Contratista es AUTÓNOMO y CERRADO. Las normas de la LCT 
+   solo se aplican analógicamente cuando el estatuto no regula algo.
+
+2. La superficie real trabajada (acreditada por RENSPA, INV o recibos) 
+   prevalece sobre la del contrato si hubo modificaciones consentidas.
+
+3. Un contratista jubilado que sigue trabajando: al despedirse solo cobra 
+   indemnización por antigüedad POSTERIOR a la jubilación.
+
+4. El Art. 2 de la Ley 25.323 NO aplica al Estatuto del Contratista.
+
+5. Para intereses moratorios en Mendoza aplicar tasa UVA (Ley 9.041 desde 2018).
+
+================================================================================
+Archivo generado para uso en bot legal - BotContador
+Fuente: Poder Judicial de Mendoza - Cámara Segunda del Trabajo, de Paz y Tributaria
+Tercera Circunscripción Judicial - General San Martín
+================================================================================

@@ -1,0 +1,41 @@
+INFORME TÉCNICO UNIFICADO DE NORMATIVA VITIVINÍCOLA Y LABORAL
+
+1. EJE LEGISLATIVO NACIONAL (Ley 26.377)
+La base de todo el sistema se fundamenta en la Ley de Convenios de Corresponsabilidad Gremial (CCG):
+- Objeto: Permite que asociaciones gremiales y entidades empresarias pacten métodos simplificados para el pago de aportes a la seguridad social.
+- Tarifa Sustitutiva: Se establece un pago único basado en la unidad de producción (quintal de uva), que reemplaza el pago mensual de aportes y contribuciones patronales.
+- Agentes de Retención: Los establecimientos que reciben la materia prima (bodegas/secaderos) tienen la obligación legal de retener la tarifa al momento de la entrega.
+- Cobertura: Los fondos se destinan a Jubilación (SIPA), Asignaciones Familiares, Obra Social, Fondo de Desempleo y ART.
+
+2. REGULACIÓN ESPECÍFICA MENDOZA (Disposición 1/2020 e INV)
+- Texto Ordenado del CCG Mendoza: Aprueba la reglamentación para todos los trabajadores en cosecha de uvas destinadas a vino o mosto.
+- Digitalización (Resolución 2017-112): Obliga a procesar formularios digitalmente entre INV, AFIP y Secretaría de Seguridad Social.
+- Alta de CUIT: Procedimiento para que empleadores soliciten alta ante AFIP para liquidar bajo modalidad CCG durante cosecha.
+
+3. IDENTIFICACIÓN Y REGISTRO (ReNAF y Formulario 002/12)
+- Registro Nacional de Agricultura Familiar (ReNAF): Identifica agricultores familiares y facilita acceso a políticas públicas como Monotributo Social.
+- Formulario N° 002/12: Declaración Jurada que vincula al titular (CUIT) con número de viñedo (Inscripción INV).
+  * Censo de Cultivo: Detalla superficie total discriminando viñas, frutales, olivos y otras áreas.
+  * Estado Sindical: Declara si el trabajador está sindicalizado, impactando en las retenciones.
+  * Riego: Informa derecho de riego y número de padrón de Irrigación.
+
+4. INFORME DE FINALIZACIÓN DE COSECHA (Contratistas)
+Es el documento de rendición final ante la Unidad Ejecutora de los CCG.
+- Detalle de Producción: Consigna hectáreas cosechadas y porcentaje de participación pactado (ej. 18%).
+- Trazabilidad: Exige desglose de quintales entregados por variedad y bodegas de destino (Razón Social y N° INV).
+- Nómina de Personal: Listado obligatorio de contratistas con nombre, apellido y DNI.
+
+OBSERVACIÓN CLAVE PARA EL CONTRATISTA:
+El Informe de Finalización de Cosecha es el documento donde se declara oficialmente
+cuántos quintales cosechó el contratista y a qué bodegas fueron.
+Si el patrón no entrega las pesadas, ese informe final NO puede completarse correctamente.
+Esto significa que el contratista tiene derecho a exigir las pesadas ANTES de firmar
+cualquier documento de finalización de cosecha.
+
+USO PARA EL BOT - PALABRAS CLAVE:
+- "pesadas" → El Informe de Finalización de Cosecha requiere los quintales por variedad y bodega
+- "CCG" o "corresponsabilidad" → La tarifa se calcula sobre quintales reales cosechados
+- "formulario sindicato" → Es el Form. 002/12 que vincula CUIT con número de viñedo INV
+- "no me dan las pesadas" → Sin pesadas no se puede completar el Informe de Finalización
+- "bodega distinta" → Debe declararse en el Informe de Finalización con Razón Social y N° INV
+

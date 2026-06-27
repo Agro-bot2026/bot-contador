@@ -1,0 +1,32 @@
+SISTEMA CIU DEL INV - CÓMO OBTENER NÚMEROS DE COMPROBANTE DE INGRESO DE UVA
+
+El INV tiene un número de WhatsApp y SMS para que el viñatero pueda pedir los números CIU desde el campo sin necesidad de internet.
+
+NÚMERO DE WHATSAPP Y SMS DEL INV:
++54 9 2616 37-3126
+
+FORMATO DEL MENSAJE:
+INV NUM [Número de Viñedo] [Número de Bodega] [Cantidad de números]
+
+EJEMPLO:
+INV NUM A10000 B70000 3
+(esto solicita 3 números CIU para el viñedo A10000 destinados a la bodega B70000)
+
+IMPORTANTE:
+- El INV envía hasta 10 números de CIU por mensaje
+- Los números son necesarios para que la bodega pueda registrar el ingreso de uva
+- Sin estos números la bodega no puede generar la Declaración Jurada de ingreso
+- El contratista tiene derecho a pedir al patrón estos números CIU (Art. 20 Ley 23.154)
+- Si el patrón se niega a entregar los CIU eso es prueba de irregularidad ante el INV
+
+OTRAS FORMAS DE OBTENER LOS NÚMEROS CIU:
+1. Por la web: argentina.gob.ar/inv -> Cosecha 2026 -> Entrega de CIU
+2. Por WhatsApp/SMS al: +54 9 2616 37-3126
+3. Personalmente en la oficina del INV con la tarjeta de viñatero
+
+VERIFICACIÓN DE DECLARACIÓN DE COSECHA:
+El contratista puede verificar los CIU presentados para su finca entrando a:
+servicios.inv.gob.ar con CUIT y Clave Fiscal
+
+NÚMERO DE ATENCIÓN AL PÚBLICO DEL INV:
+0800-5555-INV (468)

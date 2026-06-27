@@ -1,0 +1,36 @@
+MODELO DE INFORME DE IRREGULARIDADES - FORMATO DE REFERENCIA
+(Este es un ejemplo con datos ficticios para guiar el formato del informe)
+
+ESTRUCTURA DEL INFORME:
+
+1. DATOS IDENTIFICATORIOS CRUZADOS
+- Comparar nombre del empleador en todos los documentos
+- Verificar CUIT coincide en todos los documentos
+- Comparar domicilio del empleador entre documentos
+- Verificar fecha de ingreso coincide
+
+2. ANÁLISIS DE HECTÁREAS
+- Hectáreas en contrato vs recibo de sueldo
+- Hectáreas en boleta de riego vs declaración jurada
+- Si hay discrepancia: alertar y recomendar acción
+
+3. ANÁLISIS DEL RECIBO vs ESCALA SALARIAL
+- Remunerativo por hectárea debe coincidir con escala paritaria vigente
+- No remunerativo por hectárea debe coincidir con escala paritaria vigente
+- Jubilación: 11% sobre remunerativo
+- Ley 19032: 3% sobre remunerativo
+- Obra Social: ~3% sobre remunerativo
+- Seguro de Sepelio: verificar no exceda el valor de escala
+- Cuota sindical: verificar si corresponde según afiliación
+
+4. IRREGULARIDADES A DETECTAR
+- Liquidación por hectáreas incorrectas
+- Deducciones excesivas o incorrectas
+- Retenciones sindicales sin afiliación
+- Componente no remunerativo excesivo (perjudica jubilación)
+- Discrepancias entre documentos
+
+5. ACCIONES RECOMENDADAS
+- Solicitar aclaración al empleador por escrito
+- Contactar Subsecretaría de Trabajo si no responde
+- Verificar datos en DGI si hay discrepancia en hectáreas de riego

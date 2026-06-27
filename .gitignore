@@ -1,0 +1,35 @@
+# === SECRETOS - NUNCA SUBIR ===
+.env
+llave.json
+claude_key.json
+manus_key.json
+*.json.key
+*.pem
+
+# === Datos privados de usuarios ===
+usuarios_autorizados.json
+
+# === Pesado y regenerable ===
+venv/
+__pycache__/
+*.pyc
+vectordb/
+
+# === Backups y borradores viejos ===
+*.backup
+*.bak
+bot_backup_*.py
+bot.py.*.backup
+
+# === Scripts sueltos de desarrollo (parches ya aplicados) ===
+fix_*.py
+agregar_*.py
+integrar_*.py
+desactivar_*.py
+deshabilitar_*.py
+invertir_*.py
+actualizar_*.py
+test_*.py
+
+# === Logs ===
+*.log

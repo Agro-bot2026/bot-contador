@@ -1,0 +1,318 @@
+BASE DE CONOCIMIENTO LEGAL — BOT DE CONTRATISTAS DE VIÑAS Y FRUTALES — MENDOZA
+
+MÓDULO 1: ESTATUTO DEL CONTRATISTA (Ley 20.589 y Ley 23.154)
+
+¿Qué es un contratista de viña?
+Es el trabajador que se compromete a realizar todas las tareas de cultivo, cuidado y cosecha
+de un viñedo o frutal a cambio de una remuneración mensual mínima más un porcentaje de la
+producción. No es un empleado común ni un arrendatario: tiene un estatuto especial que lo protege.
+
+Requisitos del contrato (Art. 2 Ley 23.154):
+- Debe hacerse por escrito en tres ejemplares
+- Debe registrarse ante la Subsecretaría de Trabajo de Mendoza
+- Duración mínima: 1 año agrícola (renovable automáticamente)
+- Debe especificar: superficie, porcentaje de cosecha, herramientas entregadas, vivienda
+
+Derechos del contratista:
+- Remuneración mínima mensual fijada por el convenio colectivo ($13.656,19/ha según escala feb 2026)
+- Porcentaje de cosecha: entre 18% y 25% según superficie y tipo de cultivo
+- Vivienda digna en el predio o cerca de él (obligación del empleador, Art. 11 Ley 20.589)
+- Vacaciones pagas
+- Aguinaldo (SAC)
+- Obra social (OSPRERA)
+- Jubilación (régimen especial Ley 27.643)
+- Fondo de desempleo acumulado
+
+Obligaciones del empleador:
+- Pagar la remuneración mensual en término
+- Proveer vivienda adecuada
+- Registrar el contrato
+- Inscribir al contratista en RENATEA/RENAF
+- Hacer los aportes y contribuciones correctamente
+- Entregar recibo de sueldo detallado
+
+Causales de rescisión justificada del empleador:
+- Abandono del trabajo
+- Daño intencional al cultivo
+- Contratar mano de obra de terceros sin avisar (Art. 4 del contrato)
+- Incumplimiento grave de las tareas pactadas
+
+Causales de rescisión justificada del contratista:
+- Falta de pago de la remuneración
+- No provisión de vivienda
+- Incumplimiento del empleador de las obligaciones del estatuto
+
+MÓDULO 2: CONVENIO COLECTIVO CCG 07/2020
+
+Escala salarial vigente (feb 2026):
+- Remunerativo (Concepto 100): $13.656,19 por hectárea en producción
+- No Remunerativo (Concepto 118): $21.654,04 por hectárea
+- Fondo de Desempleo (Concepto 306): $972,92 por hectárea
+
+Deducciones legales sobre el monto remunerativo:
+- Jubilación: 11%
+- Ley 19032 (PAMI): 3%
+- Obra Social OSPRERA: variable (~10,6%)
+- Fondo de Desempleo: según escala
+- Seguro de Sepelio: ~$413,80/mes (solo afiliados al sindicato)
+- Cuota Extraordinaria: solo afiliados al sindicato
+
+IMPORTANTE: Las deducciones sindicales (Seguro de Sepelio y Cuota Extraordinaria) solo son
+legales si el trabajador está afiliado voluntariamente al SUTCVyF.
+
+MÓDULO 3: JUBILACIÓN VITIVINÍCOLA (Ley 27.643)
+
+Requisitos:
+- 57 años de edad
+- 25 años de aportes, mínimo 15 en actividad vitivinícola
+- Estar registrado en el RENAF
+
+Alerta crítica: Los conceptos no remunerativos NO generan aportes jubilatorios.
+Si más del 40% del salario es no remunerativo, el trabajador se perjudica para su jubilación futura.
+
+Verificar registro RENAF: 0800-222-7638 (gratuito) o www.renatea.gob.ar
+
+MÓDULO 4: DESCUENTOS SINDICALES
+
+Solo son legales si el trabajador está afiliado al SUTCVyF.
+Si declaró NO estar sindicalizado y le descuentan cuotas sindicales puede:
+1. Pedir al empleador justificación por escrito
+2. Denunciar en Subsecretaría de Trabajo de San Martín (Rivadavia 34, tel: 0263-4420100)
+3. Reclamar devolución de lo descontado indebidamente con intereses
+
+MÓDULO 5: FONDO DE DESEMPLEO
+
+Es obligatorio para TODOS los contratistas, afiliados o no.
+Lo descuenta el empleador y lo deposita en una cuenta a nombre del trabajador.
+El contratista puede cobrarlo al finalizar el contrato o si es despedido sin causa.
+Para verificar el saldo: RENATEA 0800-222-7638
+
+MÓDULO 6: SISTEMA DE RIEGO
+
+El turno de riego corresponde al propietario del predio (el empleador), no al contratista.
+El contratista tiene la obligación de estar presente en el turno asignado.
+El tiempo mínimo de riego es de 20 minutos por hectárea según el DGI de Mendoza.
+Si hay discrepancia entre hectáreas del contrato y hectáreas de riego, consultar al DGI.
+
+MÓDULO 7: ORGANISMOS DE CONTACTO EN MENDOZA
+
+- Subsecretaría de Trabajo San Martín: Rivadavia 34 — Tel: 0263-4420100
+- RENATEA (registro y fondo desempleo): 0800-222-7638 (gratuito)
+- SUTCVyF (sindicato): Pedro Vargas 523, Mendoza — Tel: 0261-4239650
+- INV (Instituto Nacional de Vitivinicultura): www.inv.gov.ar
+- Departamento General de Irrigación: www.irrigacion.gov.ar — Tel: 0261-4138000
+- ANSES (jubilación): www.anses.gob.ar — Tel: 130 (gratuito)
+- OSPRERA (obra social): www.osprera.com.ar
+
+MÓDULO 9: LEY 26.377 — CORRESPONSABILIDAD GREMIAL
+
+¿Qué es?
+Sistema donde el empleador paga una tarifa única que reemplaza las contribuciones patronales
+individuales. El sindicato gestiona la distribución a obra social, jubilación y demás organismos.
+
+¿Cómo afecta al contratista?
+- El contratista sigue recibiendo su obra social (OSPRERA) y sus aportes jubilatorios
+- La diferencia es administrativa: es el sindicato quien gestiona la distribución
+- Es importante verificar que los aportes lleguen correctamente a ANSES y OSPRERA
+
+Alerta: Si el empleador no está al día con los pagos de corresponsabilidad, los aportes del
+trabajador pueden no estar acreditados. Verificar aportes en www.anses.gob.ar con el CUIL.
+
+MÓDULO 10: RESOLUCIÓN INV 112/2017
+
+¿Qué es el INV?
+El Instituto Nacional de Vitivinicultura controla y certifica los viñedos en Argentina.
+Todo viñedo debe estar inscripto con un número de registro (ej: E-16305).
+
+¿Qué establece la Resolución 112/2017?
+- Declaración anual de cosecha (cuántos kilos produjo el viñedo)
+- Declaración de existencias de vino
+- Actualización de datos del viñedo (superficie, variedades, sistema de conducción)
+
+¿Por qué importa para el contratista?
+La declaración de cosecha del INV es el documento más importante para calcular el 18%.
+Si el empleador declara menos kilos de los reales, el contratista cobra menos de lo que corresponde.
+
+Derecho del contratista: Puede solicitar al INV los datos de la declaración de cosecha del viñedo
+donde trabaja para verificar que el 18% se calculó sobre la producción real.
+Contacto INV: www.inv.gov.ar — Tel: 0261-5213000
+
+MÓDULO 11: LIQUIDACIÓN DEL 18% DE COSECHA
+
+¿Cómo se liquida el 18%?
+Al finalizar la cosecha el empleador debe:
+1. Pesar toda la uva cosechada en báscula certificada
+2. Emitir tickets de pesada a nombre del viñedo
+3. Calcular el valor de la uva según el precio de mercado
+4. Liquidar el 18% sobre ese valor total al contratista
+
+Derechos del contratista durante la cosecha:
+- Tiene derecho a estar presente en la pesada de la uva
+- Tiene derecho a recibir copia de todos los tickets de pesada
+- Tiene derecho a conocer el precio al que se vendió la uva
+
+Alerta frecuente: Muchos empleadores calculan el 18% sobre un precio menor al real o declaran
+menos kilos. El contratista debe exigir los tickets de pesada y compararlos con la declaración del INV.
+Si hay diferencia: presentar reclamo ante la Subsecretaría de Trabajo con los tickets como prueba.
+
+MÓDULO 12: CLÁUSULAS OBLIGATORIAS DEL CONTRATO
+
+Todo contrato de contratista de viña debe tener obligatoriamente:
+1. Identificación completa de ambas partes (nombre, DNI, CUIT, domicilio)
+2. Descripción del inmueble (dirección, número INV, superficie total y cultivada)
+3. Plazo del contrato (mínimo 1 año agrícola)
+4. Porcentaje de cosecha pactado (entre 15% y 19%)
+5. Inventario de herramientas y maquinaria entregadas
+6. Descripción de la vivienda provista
+7. Referencia expresa a la Ley 23.154
+8. Firma de ambas partes y del organismo laboral
+
+Cláusulas nulas aunque estén firmadas:
+- Cualquier cláusula que renuncie a derechos del estatuto
+- Porcentajes menores al mínimo legal
+- Plazos menores a 1 año
+- Renuncia a la jurisdicción laboral de Mendoza
+
+MÓDULO 13: JURISPRUDENCIA CLAVE
+
+FALLO VILLEGAS — Cámara del Trabajo de San Martín, 2021
+Hechos: Contratista reclamó diferencias salariales y pago incorrecto del porcentaje de cosecha.
+El empleador había declarado menor producción ante el INV que la real.
+Decisión: La Cámara falló a favor del contratista. La declaración de cosecha del INV es prueba
+suficiente para calcular el 18% y el empleador debe pagar la diferencia con intereses.
+Precedente clave: El contratista puede usar los datos del INV para probar diferencias en el pago.
+
+FALLO COTIFANE — Segunda Cámara del Trabajo de Mendoza, 2006
+Hechos: Contratista despedido sin causa antes de finalizar el año agrícola.
+Decisión: El empleador debió pagar indemnización completa más el porcentaje de cosecha
+proporcional al tiempo trabajado, aunque no se hubiera cosechado todavía.
+Precedente clave: El derecho al 18% se devenga durante todo el año, no solo al momento de la cosecha.
+Nota adicional: Este fallo también estableció que el Estatuto del Contratista es autónomo y cerrado,
+excluyendo la aplicación de decretos generales de aumentos salariales.
+
+FALLO ALVELO — Primera Cámara del Trabajo de Mendoza, 2000
+Hechos: Contratista reclamó por vivienda inadecuada provista por el empleador.
+Decisión: La Cámara estableció que la vivienda debe cumplir condiciones mínimas de habitabilidad
+(agua corriente, baño, luz eléctrica). El incumplimiento habilita al contratista a rescindir el
+contrato con culpa del empleador y cobrar indemnización.
+Precedente clave: La vivienda inadecuada es causal de rescisión con responsabilidad del empleador.
+
+USO PARA EL BOT - PALABRAS CLAVE:
+- "corresponsabilidad" / "CCG" → explicar Ley 26.377 y verificación de aportes
+- "INV" / "declaración de cosecha" → explicar derecho a verificar producción real
+- "pesadas" / "tickets" → explicar derecho a recibir comprobantes
+- "18%" / "porcentaje cosecha" → explicar cómo se calcula y cómo verificarlo
+- "vivienda" → explicar condiciones mínimas y causal de rescisión
+- "cláusulas nulas" → explicar qué no puede estar en el contrato
+
+MÓDULO 14: VACACIONES DEL CONTRATISTA
+
+REGLA IMPORTANTE: El Estatuto del Contratista es autónomo y cerrado (Art. 1 Ley 20.589).
+NO se aplica la LCT supletoriamente para agregar nuevos beneficios económicos.
+Así lo establece el fallo Cotifane c/Galarraga (2006).
+
+Las vacaciones del contratista se rigen por lo que fije la Comisión Paritaria Provincial
+según el Art. 36 de la Ley 23.154, no por la Ley de Contrato de Trabajo.
+
+Si alguien pregunta sobre 30 días de vacaciones pagas o días de vacaciones según LCT,
+el bot debe aclarar que esos plazos son de la LCT y NO aplican automáticamente
+al contratista de viñas por ser un régimen autónomo y cerrado.
+
+Para conocer los días exactos de vacaciones que corresponden al contratista,
+debe consultarse la escala paritaria vigente o la Comisión Paritaria Provincial.
+
+
+MÓDULO 15 ACTUALIZADO: MONOTRIBUTO Y EL CONTRATISTA DE VIÑAS - REALIDAD DE MENDOZA
+
+CONTEXTO IMPORTANTE:
+Existe una contradicción entre la ley nacional y la práctica aplicada en Mendoza.
+
+LO QUE DICE LA LEY NACIONAL:
+- Art. 16 Ley 23.154: el porcentaje de cosecha es parte de la remuneración del contratista
+- Art. 12 Ley 20.589: el contratista tiene derecho a SAC (aguinaldo)
+- Art. 1 Ley 20.589: el estatuto es autónomo y cerrado
+- Art. 5 Ley 23.154: cualquier cláusula que disminuya derechos es nula de nulidad absoluta
+
+LO QUE APLICAN LOS ORGANISMOS DE MENDOZA EN LA PRÁCTICA:
+Según información confirmada por múltiples organismos provinciales de Mendoza
+(Subsecretaría de Trabajo, SUTCVyF, contadores especializados y abogados del AVM):
+- El contrato de contratista de viñas tiene dos componentes
+- Componente 1: relación laboral por la mensualidad (hectáreas trabajadas)
+- Componente 2: participación societaria en el 18% de la cosecha
+- Bajo esta interpretación el contratista puede facturar el 18% con monotributo
+- Bajo esta interpretación no tendría derecho a aguinaldo ni vacaciones sobre el 18%
+- El contratista puede llevar su uva a la bodega que quiera
+
+ADVERTENCIA CRÍTICA - IMPACTO EN JUBILACIÓN:
+Aunque la práctica local acepte el monotributo para el 18%, esto tiene consecuencias
+graves para el contratista que deben conocerse antes de aceptar:
+
+1. Si el 18% se factura con monotributo:
+   - No genera aportes jubilatorios sobre ese monto
+   - No genera aguinaldo sobre ese monto
+   - No genera cobertura de ART sobre ese monto
+   - Puede afectar el acceso a la jubilación anticipada a los 57 años (Ley 27.643)
+
+2. Si el 18% va por recibo de sueldo (según ley nacional):
+   - Genera aportes jubilatorios completos
+   - Genera aguinaldo
+   - Genera cobertura de ART
+   - Protege el derecho a jubilarse a los 57 años
+
+CONTRADICCIÓN PENDIENTE DE RESOLUCIÓN:
+Esta contradicción entre la ley nacional y la práctica provincial fue consultada
+formalmente al Ministerio de Trabajo de la Nación (consultas@trabajo.gob.ar).
+La respuesta oficial está pendiente.
+
+CASO 1 - MONOTRIBUTO PARA REEMPLAZAR LA RELACIÓN DE DEPENDENCIA (SIEMPRE ILEGAL):
+Si el empleador exige monotributo para reemplazar completamente la relación laboral,
+desconocer la mensualidad y los aportes → ESTO ES ILEGAL en cualquier interpretación.
+
+CASO 2 - MONOTRIBUTO SOLO PARA EL 18% (PRÁCTICA LOCAL MENDOZA):
+Práctica aceptada localmente donde el contratista mantiene su mensualidad en relación
+de dependencia y factura solo el 18% de cosecha con monotributo.
+RIESGO: puede perjudicar aportes jubilatorios y acceso a jubilación anticipada.
+
+RECOMENDACIÓN DEL BOT:
+Antes de aceptar cualquier modalidad de facturación consultá con:
+- SUTCVyF: 0261-4239650
+- Subsecretaría Trabajo San Martín: 0263-4433021
+- ANSES: 130 (gratuito) - preguntá específicamente si el monotributo afecta tu jubilación
+- Defensoría de la Nación: WhatsApp +54 11 3762-4961
+
+MÓDULO 16: ALERTA MONOTRIBUTO EN MENDOZA - CONTACTOS DE CONSULTA
+
+Cuando un contratista pregunte sobre el monotributo para el 18% de cosecha,
+al final de la respuesta legal siempre agregar este mensaje:
+
+"⚠️ IMPORTANTE - PRÁCTICA LOCAL EN MENDOZA:
+En Mendoza existe una práctica local sobre la facturación del 18% de cosecha.
+Antes de tomar cualquier decisión, consultá con los siguientes organismos
+para verificar que no te perjudique en tus aportes jubilatorios y derechos:
+
+📞 CONSULTAS GRATUITAS:
+
+🔵 Sindicato SUTCVyF Mendoza: 0261-4239650
+🔵 Subsecretaría de Trabajo San Martín: 0263-4433021
+🔵 AFIP: 0810-999-2347
+🔵 ANSES: 130 (gratuito)
+🔵 RENATEA: 0800-222-7638 (gratuito)
+
+⚖️ DEFENSORÍA DE LA NACIÓN (gratuito):
+- Web: https://www.dpn.gob.ar/areas.php?idS=4
+- Denuncia: https://www.dpn.gob.ar/contactoAreas.php?idS=4
+- WhatsApp Área 4: +54 11 3762-4960
+- WhatsApp Área 5 (Seguridad Social y Trabajo): +54 11 3762-4961
+- Mail: area5@defensor.gob.ar
+
+⚖️ ASESORAMIENTO LEGAL GRATUITO:
+- Centro de Acceso a la Justicia: https://www.argentina.gob.ar/justicia/afianzar/caj
+- Mapa de asesoramiento gratuito: https://dpn.gob.ar/mapa.php
+
+📍 MENDOZA - ASESORAMIENTO GRATUITO:
+- Ministerio Público de la Defensa: Av. España 480, Mendoza
+  Tel: 261-4497788 | defgral@jus.mendoza.gov.ar | Línea 160
+- CAJ San Rafael: Av. Mitre 11 (Registro Civil)
+  Tel: (260) 4-421530 | accesoalajusticiasanrafael@gmail.com
+- CAJ Godoy Cruz: Terrada y Carrodilla s/n, Bº La Gloria
+  Tel: (0261) 15 3354831 | cajpadrecontreras@gmail.com"

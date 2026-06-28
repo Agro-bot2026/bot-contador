@@ -1190,7 +1190,9 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
         espera = await query.message.reply_text("🏦 Consultando el BCRA... ⏳")
         try:
-            reporte = cheque_bcra.verificar_cuit(cuit)
+            banco = context.user_data.get('cheque_banco')
+            nro = context.user_data.get('cheque_nro')
+            reporte = cheque_bcra.verificar_completo(cuit, banco, nro)
             if not reporte.get('ok'):
                 await espera.edit_text(f"❌ {reporte.get('error', 'Error en la consulta')}")
                 return
@@ -1611,15 +1613,20 @@ async def procesar_archivo(update: Update, context: ContextTypes.DEFAULT_TYPE):
             else:
                 file_obj = await update.message.document.get_file()
             file_bytes = bytes(await file_obj.download_as_bytearray())
-            prompt_cuit = ("Mirá esta imagen de un cheque bancario argentino. "
-                "Extraé UNICAMENTE el CUIT o CUIL del librador (quien emite el cheque), "
-                "que son 11 digitos. Devolve SOLO los 11 numeros sin guiones ni espacios. "
-                "Si no encontras el CUIT en la imagen, devolve exactamente: NO_ENCONTRADO. "
-                "No agregues ninguna explicacion ni texto adicional.")
+            prompt_cheque = cheque_bcra.construir_prompt_ocr()
             imagen_part = Part.from_data(file_bytes, mime_type="image/jpeg")
-            res = model.generate_content([prompt_cuit, imagen_part])
+            res = model.generate_content([prompt_cheque, imagen_part])
             texto = (res.text or "").strip()
-            cuit_detectado = "".join(filter(str.isdigit, texto))
+            import json as _json, re as _re
+            cuit_detectado = ""
+            try:
+                _m = _re.search(r"\{.*\}", texto, _re.DOTALL)
+                _datos = _json.loads(_m.group(0)) if _m else {}
+                cuit_detectado = "".join(filter(str.isdigit, str(_datos.get("cuit") or "")))
+                context.user_data['cheque_banco'] = _datos.get("codigo_banco")
+                context.user_data['cheque_nro'] = _datos.get("numero_cheque")
+            except Exception:
+                cuit_detectado = "".join(filter(str.isdigit, texto))[:11]
             await aviso.delete()
             if len(cuit_detectado) == 11:
                 context.user_data['cheque_cuit'] = cuit_detectado

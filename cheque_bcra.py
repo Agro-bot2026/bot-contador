@@ -223,6 +223,21 @@ def generar_pdf(reporte: dict) -> bytes:
         el.append(Paragraph("Sin cheques rechazados registrados.", normal))
     el.append(Spacer(1, 0.5*cm))
 
+    # Estado del cheque (denuncia por robo/extravío)
+    denuncia = reporte.get("denuncia")
+    if denuncia and denuncia.get("ok") and denuncia.get("consultado"):
+        el.append(Paragraph("Estado del cheque (denuncias BCRA)", seccion))
+        if denuncia.get("denunciado"):
+            causales = ", ".join(denuncia.get("causales", [])) or "Denunciado"
+            txt = f"CHEQUE DENUNCIADO - {causales}. Banco: {denuncia.get('banco','—')}. Nº {denuncia.get('numero_cheque','—')}."
+            el.append(Paragraph(txt, ParagraphStyle("den", parent=normal, fontSize=11,
+                textColor=colors.HexColor("#c0392b"), fontName="Helvetica-Bold")))
+        else:
+            el.append(Paragraph(f"Cheque sin denuncias en el BCRA. Banco: {denuncia.get('banco','—')}. Nº {denuncia.get('numero_cheque','—')}.",
+                ParagraphStyle("noden", parent=normal, fontSize=10,
+                textColor=colors.HexColor("#1e8449"))))
+        el.append(Spacer(1, 0.5*cm))
+
     # Situación crediticia
     entidades = reporte["deudas"]["entidades"]
     el.append(Paragraph("Situación crediticia (BCRA)", seccion))
@@ -260,3 +275,91 @@ def generar_pdf(reporte: dict) -> bytes:
     doc.build(el)
     buffer.seek(0)
     return buffer.read()
+
+
+# Cache de entidades bancarias (se carga una vez)
+_ENTIDADES_CACHE = None
+
+def listar_entidades():
+    """Devuelve la lista de bancos con su código. Cachea el resultado."""
+    global _ENTIDADES_CACHE
+    if _ENTIDADES_CACHE is not None:
+        return _ENTIDADES_CACHE
+    status, data, error = _get("https://api.bcra.gob.ar/cheques/v1.0/entidades")
+    if error or not data:
+        return []
+    _ENTIDADES_CACHE = data.get("results", [])
+    return _ENTIDADES_CACHE
+
+
+def consultar_denunciado(codigo_entidad, numero_cheque):
+    """Consulta si un cheque está denunciado. Devuelve dict con denunciado, causales, etc."""
+    try:
+        codigo_entidad = int(codigo_entidad)
+        numero_cheque = int("".join(filter(str.isdigit, str(numero_cheque))))
+    except (ValueError, TypeError):
+        return {"ok": False, "error": "Código de banco o número de cheque inválido."}
+
+    url = f"https://api.bcra.gob.ar/cheques/v1.0/denunciados/{codigo_entidad}/{numero_cheque}"
+    status, data, error = _get(url)
+    if error:
+        return {"ok": False, "error": error}
+    if status == 404 or not data:
+        return {"ok": True, "consultado": False, "denunciado": False,
+                "motivo": "No se encontró el banco o el cheque."}
+
+    results = data.get("results", {})
+    detalles = results.get("detalles", []) or []
+    causales = list({d.get("causal", "—") for d in detalles})
+    return {
+        "ok": True,
+        "consultado": True,
+        "denunciado": results.get("denunciado", False),
+        "numero_cheque": results.get("numeroCheque"),
+        "banco": results.get("denominacionEntidad", "—"),
+        "fecha": results.get("fechaProcesamiento", "—"),
+        "causales": causales,
+    }
+
+
+def construir_prompt_ocr():
+    """Arma el prompt para que Gemini extraiga todos los datos del cheque."""
+    entidades = listar_entidades()
+    lista_bancos = "\n".join(f"{e['codigoEntidad']}: {e['denominacion'].strip()}"
+                             for e in entidades)
+    return (
+        "Mirá esta imagen de un cheque bancario argentino y extraé estos datos:\n"
+        "1. CUIT o CUIL del librador (quien emite el cheque): 11 dígitos.\n"
+        "2. Número del cheque (suele estar arriba a la derecha o en el código de barras inferior).\n"
+        "3. El banco emisor. Identificá cuál es de esta lista y devolvé su CÓDIGO numérico:\n"
+        f"{lista_bancos}\n\n"
+        "Devolvé SOLO un JSON válido, sin explicaciones ni markdown, con este formato exacto:\n"
+        '{"cuit": "20123456789", "codigo_banco": 11, "numero_cheque": "12345678"}\n'
+        "Si algún dato no lo encontrás, poné null en ese campo. "
+        "Para el CUIT devolvé solo los 11 dígitos sin guiones."
+    )
+
+
+def verificar_completo(cuit, codigo_banco=None, numero_cheque=None):
+    """
+    Verificación completa: antecedentes del emisor (por CUIT) +
+    si el cheque está denunciado (por banco + número, si se proveen).
+    """
+    reporte = verificar_cuit(cuit)
+    if not reporte.get("ok"):
+        return reporte
+
+    # Agregar consulta de denuncia si tenemos banco y número
+    denuncia = None
+    if codigo_banco and numero_cheque:
+        denuncia = consultar_denunciado(codigo_banco, numero_cheque)
+    reporte["denuncia"] = denuncia
+
+    # Si el cheque está denunciado, eleva el veredicto a lo máximo
+    if denuncia and denuncia.get("ok") and denuncia.get("denunciado"):
+        reporte["nivel"] = "PELIGROSO"
+        reporte["emoji"] = "🔴"
+        causales = ", ".join(denuncia.get("causales", [])) or "denunciado"
+        reporte["resumen"] = f"CHEQUE DENUNCIADO ({causales}). " + reporte["resumen"]
+
+    return reporte

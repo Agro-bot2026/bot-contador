@@ -6,6 +6,7 @@ import json
 import datetime
 import vertexai
 import PyPDF2
+import cheque_bcra
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 from vertexai.generative_models import GenerativeModel, Part
@@ -866,6 +867,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("📝 Registro de Tareas", callback_data='registro_tareas')],
             [InlineKeyboardButton("📋 Guía Formulario ReNAF", callback_data='formulario_renaf')],
             [InlineKeyboardButton("🍇 Informe Fin de Cosecha (INV)", callback_data='cosecha_inv')],
+            [InlineKeyboardButton("🏦 Verificar Cheque", callback_data='verificar_cheque')],
             [InlineKeyboardButton("🗑️ Nueva Consulta", callback_data='nueva')]
         ]
         await update.message.reply_text(texto, reply_markup=InlineKeyboardMarkup(keyboard))
@@ -1157,6 +1159,65 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Empecemos:\n\nPREGUNTA 1\n\n¿Fecha del informe? (DD/MM/AAAA)\n📝 Ejemplo: 15/06/2026",
             parse_mode="Markdown"
         )
+        return
+    if query.data == 'verificar_cheque':
+        await query.answer()
+        context.user_data['modo'] = 'esperando_cheque'
+        await query.message.reply_text(
+            "🏦 *Verificación de Cheque*\n\n"
+            "Verificá si el emisor de un cheque tiene antecedentes en el BCRA "
+            "(cheques rechazados y situación crediticia).\n\n"
+            "📸 Enviá una *foto del cheque* y voy a leer el CUIT automáticamente.\n\n"
+            "✍️ O si preferís, escribí directamente el *CUIT/CUIL* del emisor "
+            "(11 números, con o sin guiones).",
+            parse_mode="Markdown"
+        )
+        return
+    if query.data == 'cheque_corregir':
+        await query.answer()
+        context.user_data['modo'] = 'esperando_cheque'
+        await query.message.reply_text(
+            "✍️ Escribí el *CUIT/CUIL* correcto del emisor "
+            "(11 números), o enviá otra foto del cheque.",
+            parse_mode="Markdown"
+        )
+        return
+    if query.data == 'cheque_confirmar':
+        await query.answer()
+        cuit = context.user_data.get('cheque_cuit', '')
+        if len(cuit) != 11:
+            await query.message.reply_text("⚠️ No tengo un CUIT válido. Empezá de nuevo desde el menú.")
+            return
+        espera = await query.message.reply_text("🏦 Consultando el BCRA... ⏳")
+        try:
+            reporte = cheque_bcra.verificar_cuit(cuit)
+            if not reporte.get('ok'):
+                await espera.edit_text(f"❌ {reporte.get('error', 'Error en la consulta')}")
+                return
+            # Resumen en el chat
+            aviso_juicio = "\n⚖️ *ATENCIÓN: Hay cheques con proceso judicial.*\n" if reporte.get('hay_juicio') else ""
+            resumen = (
+                f"{reporte['emoji']} *{reporte['nivel']}*\n\n"
+                f"👤 *{reporte['nombre']}*\n"
+                f"🆔 CUIT: {cuit}\n\n"
+                f"{reporte['resumen']}\n"
+                f"{aviso_juicio}\n"
+                f"📄 Te envío el informe completo en PDF."
+            )
+            await espera.edit_text(resumen, parse_mode="Markdown")
+            # PDF
+            pdf_bytes = cheque_bcra.generar_pdf(reporte)
+            import io as _io
+            pdf_file = _io.BytesIO(pdf_bytes)
+            pdf_file.name = f"verificacion_cheque_{cuit}.pdf"
+            await query.message.reply_document(
+                document=pdf_file,
+                filename=f"verificacion_cheque_{cuit}.pdf",
+                caption="📄 Verificación de Cheque - BotContador"
+            )
+            context.user_data['modo'] = ''
+        except Exception as e:
+            await espera.edit_text(f"❌ Error: {str(e)[:150]}")
         return
     if query.data == 'formulario_renaf':
         await query.answer()
@@ -1540,6 +1601,48 @@ async def procesar_archivo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Capturar fotos de documentos cuando está en modo esperando_recibo
     modo_actual = context.user_data.get('modo', '')
+    if modo_actual == 'esperando_cheque':
+        if not update.message.photo and not update.message.document:
+            return
+        aviso = await update.message.reply_text("🔍 Leyendo el cheque... ⏳")
+        try:
+            if update.message.photo:
+                file_obj = await update.message.photo[-1].get_file()
+            else:
+                file_obj = await update.message.document.get_file()
+            file_bytes = bytes(await file_obj.download_as_bytearray())
+            prompt_cuit = ("Mirá esta imagen de un cheque bancario argentino. "
+                "Extraé UNICAMENTE el CUIT o CUIL del librador (quien emite el cheque), "
+                "que son 11 digitos. Devolve SOLO los 11 numeros sin guiones ni espacios. "
+                "Si no encontras el CUIT en la imagen, devolve exactamente: NO_ENCONTRADO. "
+                "No agregues ninguna explicacion ni texto adicional.")
+            imagen_part = Part.from_data(file_bytes, mime_type="image/jpeg")
+            res = model.generate_content([prompt_cuit, imagen_part])
+            texto = (res.text or "").strip()
+            cuit_detectado = "".join(filter(str.isdigit, texto))
+            await aviso.delete()
+            if len(cuit_detectado) == 11:
+                context.user_data['cheque_cuit'] = cuit_detectado
+                cuit_fmt = f"{cuit_detectado[:2]}-{cuit_detectado[2:10]}-{cuit_detectado[10:]}"
+                keyboard = [[
+                    InlineKeyboardButton("✅ Sí, consultar", callback_data='cheque_confirmar'),
+                    InlineKeyboardButton("❌ No, corregir", callback_data='cheque_corregir')
+                ]]
+                await update.message.reply_text(
+                    f"📋 Detecté el CUIT: *{cuit_fmt}*\n\n¿Es correcto?",
+                    parse_mode="Markdown",
+                    reply_markup=InlineKeyboardMarkup(keyboard)
+                )
+            else:
+                await update.message.reply_text(
+                    "⚠️ No pude leer el CUIT en la foto.\n\n"
+                    "Por favor, escribí el *CUIT/CUIL* del emisor a mano "
+                    "(11 números, con o sin guiones).",
+                    parse_mode="Markdown"
+                )
+        except Exception as e:
+            await aviso.edit_text(f"❌ Error leyendo el cheque: {str(e)[:100]}")
+        return
     if modo_actual == 'esperando_recibo':
         paso = context.user_data.get('recibo_paso', 0)
         textos = context.user_data.get('recibo_textos', {})
@@ -1960,6 +2063,28 @@ async def procesar_texto(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     mensaje_usuario = update.message.text
     modo = context.user_data.get('modo', '')
+    if modo == 'esperando_cheque':
+        texto_msg = update.message.text or ""
+        cuit_detectado = "".join(filter(str.isdigit, texto_msg))
+        if len(cuit_detectado) == 11:
+            context.user_data['cheque_cuit'] = cuit_detectado
+            cuit_fmt = f"{cuit_detectado[:2]}-{cuit_detectado[2:10]}-{cuit_detectado[10:]}"
+            keyboard = [[
+                InlineKeyboardButton("✅ Sí, consultar", callback_data='cheque_confirmar'),
+                InlineKeyboardButton("❌ No, corregir", callback_data='cheque_corregir')
+            ]]
+            await update.message.reply_text(
+                f"📋 CUIT ingresado: *{cuit_fmt}*\n\n¿Es correcto?",
+                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup(keyboard)
+            )
+        else:
+            await update.message.reply_text(
+                "⚠️ Eso no parece un CUIT válido (necesito 11 números).\n\n"
+                "Probá de nuevo: escribí el CUIT/CUIL del emisor, "
+                "o enviá una foto del cheque."
+            )
+        return
 
 
     # Modo esperando recibo - recolecta documentos uno por uno

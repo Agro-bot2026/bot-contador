@@ -33,3 +33,9 @@ test_*.py
 
 # === Logs ===
 *.log
+
+# Certificados ARCA (NUNCA subir - clave privada sensible)
+arca_cert/
+*.crt
+*.key
+clave_privada.key

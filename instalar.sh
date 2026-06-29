@@ -37,7 +37,7 @@ python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt >/dev/null 2>&1
 echo "      Librerias instaladas."
 
-echo "[4/7] Necesito tu backup de credenciales (.env, llave.json, vectordb)."
+echo "[4/7] Necesito tu backup de credenciales (.env, llave.json, vectordb, certificados ARCA)."
 echo "      Esta en tu Drive: Backups_VPS/BotContador/"
 echo ""
 echo "      Pega el ENLACE NORMAL de Drive (el de compartir)."
@@ -46,7 +46,7 @@ read -p "      Enlace de Drive: " ENLACE_DRIVE
 
 if [ -z "$ENLACE_DRIVE" ]; then
     echo "      No pegaste enlace. El bot queda instalado SIN credenciales."
-    echo "      Subi a mano .env, llave.json y vectordb/ a $DIR y arranca con pm2."
+    echo "      Subi a mano .env, llave.json, vectordb/ y arca_cert/ a $DIR y arranca con pm2."
     exit 0
 fi
 

@@ -193,6 +193,31 @@ def generar_pdf(reporte: dict) -> bytes:
     el.append(datos_tbl)
     el.append(Spacer(1, 0.5*cm))
 
+    # Datos fiscales de ARCA (si están disponibles)
+    arca = reporte.get("arca")
+    if arca and arca.get("ok"):
+        el.append(Paragraph("Datos fiscales (ARCA)", seccion))
+        filas_arca = []
+        if arca.get("estado"):
+            filas_arca.append(["Estado de la clave:", arca["estado"]])
+        if arca.get("tipo_persona"):
+            tp = "Persona física" if arca["tipo_persona"] == "FISICA" else "Persona jurídica"
+            filas_arca.append(["Tipo:", tp])
+        if arca.get("condicion"):
+            filas_arca.append(["Condición:", arca["condicion"]])
+        if arca.get("domicilio"):
+            filas_arca.append(["Domicilio fiscal:", arca["domicilio"]])
+        if filas_arca:
+            arca_tbl = Table(filas_arca, colWidths=[5*cm, 12*cm])
+            arca_tbl.setStyle(TableStyle([
+                ("FONTNAME", (0,0), (0,-1), "Helvetica-Bold"),
+                ("FONTSIZE", (0,0), (-1,-1), 10),
+                ("BOTTOMPADDING", (0,0), (-1,-1), 5),
+                ("LINEBELOW", (0,0), (-1,-1), 0.3, colors.HexColor("#dddddd")),
+            ]))
+            el.append(arca_tbl)
+        el.append(Spacer(1, 0.5*cm))
+
     # Cheques rechazados
     cheques = reporte["cheques"]["cheques"]
     el.append(Paragraph(f"Cheques rechazados ({len(cheques)})", seccion))
@@ -354,6 +379,16 @@ def verificar_completo(cuit, codigo_banco=None, numero_cheque=None):
     if codigo_banco and numero_cheque:
         denuncia = consultar_denunciado(codigo_banco, numero_cheque)
     reporte["denuncia"] = denuncia
+
+    # Datos fiscales de ARCA (si está disponible; si falla, no rompe el reporte)
+    reporte["arca"] = None
+    try:
+        import arca_padron
+        datos_arca = arca_padron.consultar(cuit)
+        if datos_arca.get("ok"):
+            reporte["arca"] = datos_arca
+    except Exception:
+        reporte["arca"] = None
 
     # Si el cheque está denunciado, eleva el veredicto a lo máximo
     if denuncia and denuncia.get("ok") and denuncia.get("denunciado"):

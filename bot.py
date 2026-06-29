@@ -1164,11 +1164,23 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.answer()
         context.user_data['modo'] = 'esperando_cheque'
         await query.message.reply_text(
+            "⚖️ *Información importante y aviso legal*\n\n"
+            "📋 *Fuentes:* datos públicos del BCRA (cheques rechazados/denunciados, "
+            "situación crediticia) y de ARCA/AFIP (datos fiscales). La información puede "
+            "tener retrasos; la base del BCRA se actualiza mensualmente.\n\n"
+            "📸 *La lectura puede fallar:* si el cheque tiene sello, manchas o algo que "
+            "tape los números, el OCR puede equivocarse. En ese caso ingresá el CUIT a mano.\n\n"
+            "⚠️ *Aviso legal:* información orientativa, no es asesoramiento legal ni "
+            "financiero. No nos responsabilizamos por decisiones tomadas solo con estos "
+            "datos. Verificá discrepancias con el organismo emisor. Los datos son de fuentes "
+            "públicas oficiales y deben usarse solo para verificar operaciones comerciales "
+            "legítimas. El uso indebido es responsabilidad del usuario.",
+            parse_mode="Markdown"
+        )
+        await query.message.reply_text(
             "🏦 *Verificación de Cheque*\n\n"
-            "Verificá si el emisor de un cheque tiene antecedentes en el BCRA "
-            "(cheques rechazados y situación crediticia).\n\n"
             "📸 Enviá una *foto del cheque* y voy a leer el CUIT automáticamente.\n\n"
-            "✍️ O si preferís, escribí directamente el *CUIT/CUIL* del emisor "
+            "✍️ O escribí directamente el *CUIT/CUIL* del emisor "
             "(11 números, con o sin guiones).",
             parse_mode="Markdown"
         )

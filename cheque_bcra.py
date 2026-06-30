@@ -123,7 +123,7 @@ if __name__ == "__main__":
     print(json.dumps(verificar_cuit(cuit), indent=2, ensure_ascii=False))
 
 
-def generar_pdf(reporte: dict) -> bytes:
+def generar_pdf(reporte: dict, explicacion: str = "") -> bytes:
     """Genera el PDF de verificación de cheque a partir del reporte de verificar_cuit()."""
     import io
     from reportlab.lib.pagesizes import A4
@@ -289,6 +289,18 @@ def generar_pdf(reporte: dict) -> bytes:
         el.append(Paragraph("Sin deudas registradas en el sistema financiero.", normal))
     el.append(Spacer(1, 0.6*cm))
 
+    # Sección de explicación de la IA (si está disponible)
+    if explicacion:
+        el.append(Paragraph("¿Qué significa este resultado?", seccion))
+        for parrafo in explicacion.split("\n"):
+            parrafo = parrafo.strip()
+            if parrafo:
+                # Limpiar markdown básico (** y *) que ReportLab no renderiza bien
+                parrafo = parrafo.replace("**", "").replace("*", "")
+                el.append(Paragraph(parrafo, ParagraphStyle("exp", parent=normal, fontSize=10, leading=14)))
+                el.append(Spacer(1, 0.15*cm))
+        el.append(Spacer(1, 0.4*cm))
+
     el.append(HRFlowable(width="100%", thickness=0.5, color=colors.grey))
     el.append(Spacer(1, 0.2*cm))
     el.append(Paragraph(
@@ -398,3 +410,60 @@ def verificar_completo(cuit, codigo_banco=None, numero_cheque=None):
         reporte["resumen"] = f"CHEQUE DENUNCIADO ({causales}). " + reporte["resumen"]
 
     return reporte
+
+
+def generar_explicacion(reporte: dict, model) -> str:
+    """
+    Genera una explicación en lenguaje simple de los datos del reporte,
+    usando Gemini. Solo explica los datos del cheque/emisor (no temas laborales).
+    Si falla, devuelve cadena vacía (el PDF sale igual sin esta sección).
+    """
+    # Protección: si el reporte no tiene datos válidos (BCRA falló), no explicar
+    if not reporte.get("ok") or not reporte.get("nivel"):
+        return ""
+    try:
+        # Armar el resumen de datos para el prompt
+        partes = []
+        partes.append(f"Veredicto: {reporte.get('nivel', '')}")
+        partes.append(f"Emisor: {reporte.get('nombre', 'No identificado')}")
+
+        cheques = reporte.get("cheques", {}).get("cheques", [])
+        if cheques:
+            partes.append(f"Cheques rechazados: {len(cheques)} por un total de ${reporte['cheques'].get('monto_total', 0):,.0f}")
+            for c in cheques:
+                estado = "pagado" if c.get("fecha_pago") else ("en juicio" if c.get("proceso_jud") else "impago")
+                partes.append(f"  - Cheque {c.get('nro')}: ${c.get('monto', 0):,.0f}, causal {c.get('causal')}, {estado}")
+        else:
+            partes.append("No tiene cheques rechazados.")
+
+        entidades = reporte.get("deudas", {}).get("entidades", [])
+        if entidades:
+            partes.append("Situación crediticia:")
+            for e in entidades:
+                partes.append(f"  - {e.get('entidad')}: situación {e.get('situacion')} ({SITUACIONES.get(e.get('situacion'), '')})")
+
+        denuncia = reporte.get("denuncia")
+        if denuncia and denuncia.get("denunciado"):
+            partes.append(f"CHEQUE DENUNCIADO: {', '.join(denuncia.get('causales', []))}")
+
+        arca = reporte.get("arca")
+        if arca and arca.get("ok"):
+            partes.append(f"Condición fiscal (ARCA): {arca.get('condicion', '')}, estado {arca.get('estado', '')}")
+
+        datos = "\n".join(partes)
+
+        prompt = (
+            "Sos un asesor que ayuda a contratistas viñateros de Mendoza a entender "
+            "si conviene aceptar un cheque. Te paso el resultado de una verificación. "
+            "Explicá en lenguaje simple y claro (como para alguien sin conocimientos financieros) "
+            "qué significa CADA dato, qué riesgo implica, y qué le conviene hacer a la persona. "
+            "Usá un tono directo y práctico, en español argentino. NO inventes datos que no estén. "
+            "NO menciones temas laborales ni el estatuto del contratista (esto es solo sobre el cheque). "
+            "Máximo 3 párrafos cortos.\n\n"
+            f"DATOS DE LA VERIFICACIÓN:\n{datos}"
+        )
+
+        respuesta = model.generate_content(prompt)
+        return (respuesta.text or "").strip()
+    except Exception:
+        return ""

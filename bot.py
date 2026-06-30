@@ -1220,7 +1220,8 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             await espera.edit_text(resumen, parse_mode="Markdown")
             # PDF
-            pdf_bytes = cheque_bcra.generar_pdf(reporte)
+            explicacion = cheque_bcra.generar_explicacion(reporte, model)
+            pdf_bytes = cheque_bcra.generar_pdf(reporte, explicacion)
             import io as _io
             pdf_file = _io.BytesIO(pdf_bytes)
             pdf_file.name = f"verificacion_cheque_{cuit}.pdf"

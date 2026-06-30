@@ -866,6 +866,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton("📊 Registro de Ventas", callback_data='registro_ventas')],
             [InlineKeyboardButton("📝 Registro de Tareas", callback_data='registro_tareas')],
             [InlineKeyboardButton("📋 Guía Formulario ReNAF", callback_data='formulario_renaf')],
+            [InlineKeyboardButton("📄 Modelo Prórroga de Contrato", callback_data='prorroga_contrato')],
             [InlineKeyboardButton("🍇 Informe Fin de Cosecha (INV)", callback_data='cosecha_inv')],
             [InlineKeyboardButton("🏦 Verificar Cheque", callback_data='verificar_cheque')],
             [InlineKeyboardButton("🗑️ Nueva Consulta", callback_data='nueva')]
@@ -1233,6 +1234,46 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
             context.user_data['modo'] = ''
         except Exception as e:
             await espera.edit_text(f"❌ Error: {str(e)[:150]}")
+        return
+    if query.data == 'prorroga_contrato':
+        await query.answer()
+        texto_prorroga = (
+            "📄 *Modelo de Prórroga de Contrato de Viñas*\n\n"
+            "⚠️ Este es un MODELO de referencia para que veas cómo es el formulario. "
+            "Para el trámite real, presentación y asesoramiento, consultá en el "
+            "sindicato (SUTCVyF) o en la Subsecretaría de Trabajo y Empleo de Mendoza.\n\n"
+            "```\n"
+            "MINISTERIO DE GOBIERNO TRABAJO Y JUSTICIA\n"
+            "Subsecretaría de Trabajo y Empleo - MENDOZA\n\n"
+            "FORMULARIO Nº003/12\n"
+            "PRORROGA DE CONTRATO DE VIÑAS Y FRUTALES (Ley Nº23.154)\n\n"
+            "CONSTE: Expresamente que entre el Señor: __________________, "
+            "mayor de edad, DNI Nº __________, con domicilio real sito en "
+            "__________________, en su carácter de Empleador de la firma, "
+            "__________________, por una parte como empleador, y el señor: "
+            "__________________, mayor de edad DNI Nº __________, con domicilio "
+            "real sito en __________________, por la otra parte, como contratista "
+            "de viñas y/o frutales, han convenido prorrogar su contrato "
+            "oportunamente celebrado, para fecha ____ de __________ ______, "
+            "(Ley Nº 23.154/88), inscripto en el registro de contratos de la "
+            "Subsecretaría de trabajo y seguridad social del gobierno de Mendoza, "
+            "bajo número de Orden: Nº __________, y en los mismos términos y "
+            "condiciones establecidas, firmando las partes, al pie de la presente "
+            "acta, en carácter de declaración jurada y en prueba de conformidad, "
+            "en la provincia de Mendoza, a los ____ días del mes de __________ "
+            "del año ______.\n\n"
+            "____________________      ____________________\n"
+            "Contratista                Empleador\n"
+            "Firma y Aclaracion         Firma y Aclaracion\n"
+            "```\n\n"
+            "⚠️ *Importante:* donde se indica el período, especificá siempre el "
+            "*ciclo agrícola completo* (ej: temporada 2025/2026), nunca un año "
+            "suelto. Poner solo el año es ambiguo y puede traerte problemas en el "
+            "registro o con retenciones.\n\n"
+            "📞 *SUTCVyF:* 0261-4239650\n"
+            "📞 *Subsecretaría de Trabajo:* 0263-4433021"
+        )
+        await query.message.reply_text(texto_prorroga, parse_mode="Markdown")
         return
     if query.data == 'formulario_renaf':
         await query.answer()

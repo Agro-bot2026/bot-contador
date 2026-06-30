@@ -1263,6 +1263,10 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == 'nueva':
         limpiar_historial(user_id)
+        context.user_data['modo'] = ''
+        context.user_data.pop('cheque_cuit', None)
+        context.user_data.pop('cheque_banco', None)
+        context.user_data.pop('cheque_nro', None)
         await query.message.reply_text("🗑️ Conversacion reiniciada. En que te puedo ayudar?")
 
     elif query.data == 'avales':
@@ -2098,11 +2102,23 @@ async def procesar_texto(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 reply_markup=InlineKeyboardMarkup(keyboard)
             )
         else:
-            await update.message.reply_text(
-                "⚠️ Eso no parece un CUIT válido (necesito 11 números).\n\n"
-                "Probá de nuevo: escribí el CUIT/CUIL del emisor, "
-                "o enviá una foto del cheque."
-            )
+            # Si parece una consulta real (varias palabras), salir del modo cheque
+            palabras = texto_msg.split()
+            letras = sum(ch.isalpha() for ch in texto_msg)
+            if len(palabras) >= 4 and letras > 10:
+                context.user_data['modo'] = ''
+                context.user_data.pop('cheque_cuit', None)
+                context.user_data.pop('cheque_banco', None)
+                context.user_data.pop('cheque_nro', None)
+                await update.message.reply_text(
+                    "Salí del modo Verificar Cheque. Volvé a enviar tu consulta y te respondo. 👍"
+                )
+            else:
+                await update.message.reply_text(
+                    "⚠️ Eso no parece un CUIT válido (necesito 11 números).\n\n"
+                    "Probá de nuevo: escribí el CUIT/CUIL del emisor, "
+                    "o enviá una foto del cheque."
+                )
         return
 
 
